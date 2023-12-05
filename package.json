@@ -1,0 +1,50 @@
+{
+  "name": "l2qr-sdk",
+  "version": "1.0.1",
+  "description": "L2QR SDK for JavaScript",
+  "scripts": {
+    "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && sh ./scripts/build-packages.sh",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "prepare": "npm run build",
+    "test": "jest --config jestconfig.json --passWithNoTests"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.2"
+  },
+  "devDependencies": {
+    "jest": "^29.1.2",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.8.4"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "keywords": [
+    "l2qr",
+    "sdk",
+    "api"
+  ],
+  "homepage": "https://github.com/AlexBasiuk/link-to-qr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexBasiuk/link-to-qr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexBasiuk/link-to-qr/issues"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
