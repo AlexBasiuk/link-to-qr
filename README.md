@@ -3,7 +3,7 @@
 
 ## Installation
 ```
-npm install l2qr-sdk
+npm install @linktoqr/l2qr-sdk
 ```
 
 ### REST API

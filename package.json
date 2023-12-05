@@ -1,5 +1,5 @@
 {
-  "name": "l2qr-sdk",
+  "name": "@linktoqr/l2qr-sdk",
   "version": "1.0.1",
   "description": "L2QR SDK for JavaScript",
   "scripts": {
