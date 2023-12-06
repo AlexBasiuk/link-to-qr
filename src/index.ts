@@ -19,7 +19,7 @@ export default class L2qr {
 	// Utils
 	async request(path: string = '', parameters: RequestParameters = {}) {
 		return await requestHelper({
-			method: parameters?.method || 'get',
+			method: (parameters && parameters.method) || 'get',
 			url: `${L2QR_BASE_URL}${path}`,
 			headers: this.headers,
 			...parameters,
@@ -27,7 +27,7 @@ export default class L2qr {
 	}
 
 	// staticQrCode
-	public readonly staticQrCode = {
+	public readonly staticQrCodes = {
 		create: async (parameters: object = {}): Promise<any> => {
 			return this.request('/static/qr-codes', { method: 'post', data: parameters });
 		},
