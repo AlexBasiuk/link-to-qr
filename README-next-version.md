@@ -10,7 +10,7 @@ npm install @linktoqr/l2qr-sdk
 Initialize the SDK with the L2qr project API token. You can generate one here: https://app.l2qr.com/settings/account.
 
 ```js
-import L2qr from 'l2qr-sdk';
+import L2qr from '@linktoqr/l2qr-sdk';
 
 const l2qr = new L2qr('${API_KEY}');
 ```
