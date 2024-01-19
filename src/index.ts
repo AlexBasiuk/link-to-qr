@@ -1,4 +1,5 @@
-import { default as requestHelper, RequestParameters } from './helpers/request.js';
+import { default as requestHelper } from './helpers/request.js';
+import { AxiosRequestConfig, ResponseType } from 'axios';
 
 const L2QR_BASE_URL = 'https://api.link-to-qr.com/v1/api';
 
@@ -17,7 +18,7 @@ export default class L2qr {
 	}
 
 	// Utils
-	async request(path: string = '', parameters: RequestParameters = {}) {
+	async request(path: string = '', parameters: AxiosRequestConfig = {}) {
 		return await requestHelper({
 			method: (parameters && parameters.method) || 'get',
 			url: `${L2QR_BASE_URL}${path}`,
@@ -46,8 +47,10 @@ export default class L2qr {
 	};
 	// staticQrCodeFile
 	public readonly staticQrCodesFile = {
-		get: async (parameters: object = {}): Promise<any> => {
-			return this.request('/static/qr-codes-file', { method: 'post', data: parameters });
+		get: async (parameters: object = {}, responseType: ResponseType ): Promise<any> => {
+			const params: AxiosRequestConfig = { method: 'post', data: parameters }
+			if (responseType) params.responseType = responseType
+			return this.request('/static/qr-codes-file', params);
 		},
 	};
 };

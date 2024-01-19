@@ -1,14 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
-export interface RequestParameters {
-	method?: string;
-	url?: string;
-	data?: object;
-	headers?: object;
-	params?: object;
-};
-
-export default async function request(parameters: RequestParameters) {
+export default async function request(parameters: AxiosRequestConfig) {
 	let response: any;
 
 	try {
