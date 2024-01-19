@@ -47,7 +47,7 @@ export default class L2qr {
 	};
 	// staticQrCodeFile
 	public readonly staticQrCodesFile = {
-		get: async (parameters: object = {}, responseType: ResponseType ): Promise<any> => {
+		get: async (parameters: object = {}, responseType?: ResponseType ): Promise<any> => {
 			const params: AxiosRequestConfig = { method: 'post', data: parameters }
 			if (responseType) params.responseType = responseType
 			return this.request('/static/qr-codes-file', params);
