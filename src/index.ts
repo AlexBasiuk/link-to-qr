@@ -44,4 +44,10 @@ export default class L2qr {
 		// 	return this.request(`/static/qr-codes/${staticQrCodeId}`, { method: 'delete' });
 		// },
 	};
+	// staticQrCodeFile
+	public readonly staticQrCodesFile = {
+		get: async (parameters: object = {}): Promise<any> => {
+			return this.request('/static/qr-codes-file', { method: 'post', data: parameters });
+		},
+	};
 };
